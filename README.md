@@ -1,5 +1,5 @@
 # TwoLevelSnake
 Just a two level snake game.
 
-Build:
+Linux Build:
 just run make
