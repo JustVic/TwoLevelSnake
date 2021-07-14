@@ -1,0 +1,26 @@
+#OBJS specifies which files to compile as part of the project
+OBJS = main.cpp kiss_sdl/kiss_posix.c
+
+#CC specifies which compiler we're using
+CC = g++
+
+#COMPILER_FLAGS specifies the additional compilation options we're using
+# -w suppresses all warnings
+COMPILER_FLAGS = -w -Wall -std=c++11
+
+#LINKER_FLAGS specifies the libraries we're linking against
+LINKER_FLAGS = -L./kiss_sdl/ -lkisssdl -lSDL2 -lSDL2_image -lSDL2_ttf -F/Library/Frameworks
+
+KISS_DIR = kiss_sdl
+KISS_SDL = $(KISS_DIR)/kisssdl.a
+
+INCLUDES = -I/usr/local/include -I/Library/Frameworks/SDL2.framework/Headers 
+
+#INCLUDES = -I nuklear.h
+#OBJ_NAME specifies the name of our exectuable
+OBJ_NAME = main
+
+#This is the target that compiles our executable
+all : $(OBJS)
+	$(CC) $(OBJS) $(INCLUDES) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME)
+
